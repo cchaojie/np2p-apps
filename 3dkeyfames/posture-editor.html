@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <link rel="stylesheet" href="posture-editor.css">
+      <script src="libs/jquery-3.6.4.min.js"></script>
+      <script src="libs/three.min.js"></script>
+      <script src="libs/OrbitControls.min.js"></script>
+      <script src="libs/GLTFExporter.min.js"></script>
+      <script src="mannequin.js"></script>
+   </head>
+   <body>
+      <div id="divResult" style="left:0;right:0;top:0;bottom:0;background: #ffffffdd;position:fixed;z-index:100;display:none;"></div>
+      <div class="panel" style="left:0;">
+         <label style="display: none;"><input id="inverse-kinematics" type="checkbox" class="toggle" checked><span>Inverse<br>kinematics</span></label><br>
+         <label style="display: none;"><input id="biological-constraints" type="checkbox" class="toggle"><span>Biological<br>constraints</span></label>
+         <div style="text-align:center;">选中部位</div><hr>
+         <label><input id="rot-z" type="checkbox" class="toggle" checked><span id="rot-z-name">上下</span></label><br>
+         <label><input id="rot-x" type="checkbox" class="toggle"><span id="rot-x-name">左右</span></label><br>
+         <label><input id="rot-y" type="checkbox" class="toggle"><span id="rot-y-name">旋转</span></label>
+         <div style="text-align:center;">整体</div><hr>
+         <label><input id="mov-x" type="checkbox" class="toggle"><span>左右移动</span></label><br>
+         <label><input id="mov-y" type="checkbox" class="toggle"><span>上下移动</span></label><br>
+         <label><input id="mov-z" type="checkbox" class="toggle"><span>旋转</span></label><br>
+      </div>
+      <div class="panel" style="right:0; width:15em;">
+	     <span class="button-group" style="display: none;">Posture
+			 <button id="gp">Get</button><br>
+			 <button id="sp">Set</button><br>
+			 <button id="ep">Export</button><br>
+		 </span>
+       <span class="button-group">视频
+         <button id="gimg">添加关键帧</button><br>
+         <button id="ganime">预览动画</button><br>
+         <div><input id="prompt" type="text" value="1girl" placeholder="提示词" /></div>
+         <div><input id="seed" type="text" value="1000" placeholder="Seed" /></div>
+         <button id="gvideo" disabled="disabled">生成视频</button>
+      </span>
+      <div id="kframes"></div>
+		 <hr>
+	     <span class="button-group" style="display:none;">人物
+			 <button id="am">添加</button><br>
+			 <button id="rm">删除</button><br>
+		 </span>
+      </div>
+      <script src="posture-editor.js"></script>
+   </body>
+</html>
