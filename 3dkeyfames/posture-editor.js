@@ -1,3 +1,4 @@
+var serverAddr = "http://119.91.202.207:10081";
 const EPS = 0.00001;
 
 
@@ -692,7 +693,7 @@ function getVideo(){
 		const settings = {
 			"async": true,
 			"crossDomain": true,
-			"url": "http://119.91.202.207:10081/api/NP2P/NewTask",
+			"url": serverAddr + "/api/NP2P/NewTask",
 			"method": "POST",
 			"headers": {
 				"accept": "text/plain",
@@ -717,7 +718,7 @@ function createFrame(taskId,posInd,posImg){
 	const settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": "http://119.91.202.207:10081/api/NP2P/CreateFrame",
+		"url": serverAddr + "/api/NP2P/CreateFrame",
 		"method": "POST",
 		"headers": {
 			"accept": "text/plain",
@@ -741,7 +742,7 @@ function checkVideo(taskId){
 	const settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": "http://119.91.202.207:10081/api/NP2P/GetTask?taskId="+taskId,
+		"url": serverAddr + "/api/NP2P/GetTask?taskId="+taskId,
 		"method": "POST",
 		"headers": {
 			"accept": "text/plain",
@@ -752,7 +753,7 @@ function checkVideo(taskId){
 	
 	$.ajax(settings).done(function (response) {
 		if(response.status){
-			$("#divResult").html('<h1>视频生成成功</h1><video src="http://119.91.202.207:10081/np2p/'+taskId+'/result.mp4" controls="controls"></video>');
+			$("#divResult").html('<h1>视频生成成功</h1><video src="' + serverAddr + '/np2p/'+taskId+'/result.mp4" controls="controls"></video>');
 		}else{
 			setTimeout(function(){
 				checkVideo(taskId);
